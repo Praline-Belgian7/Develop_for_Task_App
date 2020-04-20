@@ -1,31 +1,31 @@
 <% provide(:title, "Top") %>
-<div class="jumbotron">
-  <h1>サンプルアプリ</h1>
-  <p>
-    皆さんの手で、この最低限の土台となるアプリケーションから<br>
-    タスク管理機能を持ったアプリケーションへと作り替えていきましょう！
-  </p>
 
-  <p>現在このアプリケーションには、以下の機能が備わっています。</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 top-contents1">
+        <div class="top-logo1">TaskApp</div>
+        <p class="top-text1"><span class="top-text2">TaskApp</span>は簡易<span class="top-text2">ToDo</span>管理ツールです。</p>
+        <p class="top-text1">↓↓初めてのご利用↓↓</p>
+        <%= link_to "アカウント作成", signup_path, class: "btn btn-lg btn-success" %>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-4">
+        <div class="top-logo2">ログイン</div>
+        <%= form_with(scope: :session, url: login_path, local: true) do |f| %>
 
-  <ul>
-    <li>ルートURLに対応したトップページ（このページです）</li>
-    <li>ユーザー機能
-      <ol>
-        <li>名前・メールアドレス・パスワード・ログイン認証用のカラムを持ったUserモデル</li>
-        <li>ユーザー新規登録と対応したページ</li>
-      </ol>
-    </li>
-    <li>ログイン機能
-      <ol>
-        <li>セッションによる一時的ログイン機能</li>
-        <li>Cookiesによる永続的ログイン機能</li>
-      </ol>
-    </li>
-  </ul>
-  <p>実質【勤怠チュートリアル第７章】までの機能を持ったアプリケーションとなります。</p>
-  <center>
-    <%= link_to "Sign Up", signup_path, class: "btn btn-lg btn-primary" %>
-    <%= link_to "Log In", login_path, class: "btn btn-lg btn-primary" %>
-  </center>
+        <%= f.label :email, class: "label-login" %>
+        <%= f.email_field :email, class: 'form-control' %>
+
+        <%= f.label :password, class: "label-login" %>
+        <%= f.password_field :password, class: 'form-control' %>
+      
+        <%= f.label :remember_me, class: "checkbox inline checkbox-login", for: "remember-me" do %>
+          <%= f.check_box :remember_me, id: "remember-me" %>
+          <span>ログイン情報を記憶する</span>
+        <% end %>
+      <%= f.submit "ログイン", class: "btn btn-primary btn-block btn-login" %>
+      <% end %>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
 </div>

@@ -52,21 +52,90 @@ p {
 
 /* ヘッダー */
 
+#header {
+  background-color: #008080;
+}
+
 #logo {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
   color: #fff;
-  text-transform: uppercase;
+  // text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
+  font-style: italic;
 }
 
 #logo:hover {
-  color: #fff;
+  color: #adadad;
   text-decoration: none;
 }
+
+.header-list {
+  color: #fff !important;
+  font-weight: bold !important;
+  background-color: #008080 !important;
+}
+
+.header-list:hover {
+  color: #adadad !important;
+  background-color: #008080 !important;
+}
+
+.header-list:active {
+  color: #adadad !important;
+  background-color: #008080 !important;
+}
+
+.header-list:focus {
+  color: #adadad !important;
+  background-color: #008080 !important;
+}
+
+/* ドロップダウン */
+
+.dropdown-font {
+  font-size: 12px;
+  background-color: #d9d9d9;
+  padding: 3px 0 3px 20px;
+  margin-top: 10px;
+}
+
+.top-contents1 {
+  text-align: center;
+}
+
+
+
+
+
+.top-logo1 {
+  font-size: 60px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 60px 0 0 0;
+}
+
+.top-logo2 {
+  text-align: center;
+  font-size: 40px;
+  padding: 15px 0 20px 0;
+}
+
+.top-text1 {
+  font-size: 20px;
+}
+
+.top-text2 {
+  font-weight: lighter;
+}
+
+
+
+
+
 
 /* デバッグウインドウ */
 
