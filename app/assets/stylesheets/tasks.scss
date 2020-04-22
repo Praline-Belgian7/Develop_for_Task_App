@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .table .table-task {
-    vertical-align: middle;
+  vertical-align: middle;
 }
 
 .btn-task-new {
@@ -16,12 +16,29 @@
   margin: 5px 0 5px 0;
 }
 
+.btn-task-edit1 {
+  padding: 10px 15px 10px 15px;
+  font-size: 15px;
+}
+
 .btn-task-delete {
   margin: 5px 0 5px 0;
+}
+
+.btn-task-delete1 {
+  padding: 10px 15px 10px 15px;
+  font-size: 15px;
 }
 
 .task-name {
   font-size: 20px;
   padding: 10px 0 0 0;
-  vertical-align: center !important;
+}
+
+.table-task-show {
+  background-color: #f5f5f5;
+  font-weight: bold;
+  text-align: center;
+  height: 40px;
+  vertical-align: middle;
 }

@@ -38,6 +38,11 @@ class TasksController < ApplicationController
     end
   end
   
+  def show
+    @user = User.find(params[:user_id])
+    @task = Task.find_by(id: @user.id)
+  end
+  
   private
 
   def task_params

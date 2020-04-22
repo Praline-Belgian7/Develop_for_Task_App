@@ -1,0 +1,38 @@
+<% provide(:title, @user.name) %>
+<h1>タスク詳細</h1>
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-10">
+    <table class="table table-bordered table-condensed user-table">
+      <tr>
+        <td class="col-md-2 table-task-show table-task">ID</td>
+        <td class="col-md-10 table-task"><%= @task.id %></td>
+      </tr>
+      <tr>
+        <td class="table-task-show table-task">名称</td>
+        <td class="table-task"><%= @task.name %></td>
+      </tr>
+      <tr>
+        <td class="table-task-show table-task">詳細</td>
+        <td class="table-task"><%= @task.description %></td>
+      </tr>
+      <tr>
+        <td class="table-task-show table-task">作成日</td>
+        <td class="table-task"><%= l(@task.created_at, format: :long) %></td>
+      </tr>
+      <tr>
+        <td class="table-task-show table-task">更新日</td>
+        <td class="table-task"><%= l(@task.updated_at, format: :long) %></td>
+      </tr>
+    </table>
+  </div>
+  <div class="col-md-1"></div>
+</div>
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-10">
+    <%= link_to "編集", edit_user_task_path(@user,@user.id), class: "btn btn-success btn-task-edit1"%>
+    <%= link_to "削除", "#", method: :delete, data: { confirm: "削除してよろしいですか？" }, class: "btn btn-danger btn-task-delete1" %>
+  </div>
+  <div class="col-md-1"></div>
+</div>
