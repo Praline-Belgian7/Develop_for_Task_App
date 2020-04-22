@@ -1,0 +1,27 @@
+// Place all the styles related to the tasks controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.table .table-task {
+    vertical-align: middle;
+}
+
+.btn-task-new {
+  float: right;
+  padding: 15px 15px 15px 15px;
+  font-size: 18px;
+}
+
+.btn-task-edit {
+  margin: 5px 0 5px 0;
+}
+
+.btn-task-delete {
+  margin: 5px 0 5px 0;
+}
+
+.task-name {
+  font-size: 20px;
+  padding: 10px 0 0 0;
+  vertical-align: center !important;
+}
