@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   
   def index
     @user = User.find(params[:user_id])
-    @tasks = Task.all
+    @tasks = Task.where(user_id: @user.id).all.order(created_at: :desc)
   end
   
   def new
@@ -24,12 +24,12 @@ class TasksController < ApplicationController
   
   def edit
     @user = User.find(params[:user_id])
-    @task = Task.find_by(id: @user.id)
+    @task = Task.find(params[:id])
   end
 
   def update
     @user = User.find(params[:user_id])
-    @task = Task.find_by(id: @user.id)
+    @task = Task.find(params[:id])
     if @task.update_attributes(task_params)
       flash[:success] = "タスクを更新しました。"
       redirect_to user_tasks_path @user
@@ -40,7 +40,15 @@ class TasksController < ApplicationController
   
   def show
     @user = User.find(params[:user_id])
-    @task = Task.find_by(id: @user.id)
+    @task = Task.find(params[:id])
+  end
+  
+  def destroy
+    @user = User.find(params[:user_id])
+    @task = Task.find(params[:id])
+    @task.destroy
+    flash[:success] = "タスクを削除しました。"
+    redirect_to user_tasks_path @user
   end
   
   private
