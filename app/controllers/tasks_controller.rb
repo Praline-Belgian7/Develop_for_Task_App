@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   
   def index
     @user = User.find(params[:user_id])
-    @tasks = Task.where(user_id: @user.id).all.order(created_at: :desc)
+    @tasks = Task.where(user_id: @user.id).order(created_at: :desc)
   end
   
   def new
