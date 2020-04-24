@@ -12,18 +12,8 @@
   margin: 5px 0 5px 0;
 }
 
-.btn-user-edit1 {
-  padding: 10px 15px 10px 15px;
-  font-size: 15px;
-}
-
 .btn-user-delete {
-  margin: 5px 0 5px 0;
-}
-
-.btn-user-delete1 {
-  padding: 10px 15px 10px 15px;
-  font-size: 15px;
+  float: right;
 }
 
 .user-name {
@@ -37,4 +27,8 @@
   text-align: center;
   height: 40px;
   vertical-align: middle;
+}
+
+.label-user {
+  margin: 0 0 0 10px;
 }
