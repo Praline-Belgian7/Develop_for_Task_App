@@ -30,8 +30,8 @@ class ApplicationController < ActionController::Base
   end
   
   # アクセスしたユーザーが現在ログインしているユーザーか確認します。
-  # def correct_user
-  #   redirect_to root_url unless 
-  # end
+  def correct_user
+    redirect_to root_url unless current_user?(@user)
+  end
   
 end

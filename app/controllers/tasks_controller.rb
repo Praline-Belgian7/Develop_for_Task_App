@@ -18,7 +18,7 @@ class TasksController < ApplicationController
     @task.user_id = @user.id
     if @task.save
       flash[:success] = "タスクを新規作成しました。"
-      redirect_to user_tasks_path @user
+      redirect_to user_tasks_url @user
     else
       render :new
     end
@@ -34,7 +34,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     if @task.update_attributes(task_params)
       flash[:success] = "タスクを更新しました。"
-      redirect_to user_tasks_path @user
+      redirect_to user_task_url(@user.id, @task.id)
     else
       render :edit
     end
@@ -50,7 +50,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     @task.destroy
     flash[:success] = "タスクを削除しました。"
-    redirect_to user_tasks_path @user
+    redirect_to user_tasks_url @user
   end
   
   private

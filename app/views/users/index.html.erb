@@ -22,7 +22,7 @@
           </td>
           <td class="table-user">
             <% unless user.admin? %>
-              <%= link_to "削除", user_path(user.id), method: :delete, data: { confirm: "削除してよろしいですか？" }, class: "btn btn-danger btn-user-delete" %>
+              <%= link_to "削除", user_path(user.id), method: :delete, data: { confirm: "【#{user.name}】を削除してよろしいですか？" }, class: "btn btn-danger btn-user-delete" %>
             <% end %>
           </td>
         </tr>
