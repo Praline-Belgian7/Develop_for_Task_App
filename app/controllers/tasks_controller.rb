@@ -1,5 +1,7 @@
 class TasksController < ApplicationController
   
+  before_action :logged_in_user
+  
   def index
     @user = User.find(params[:user_id])
     @tasks = Task.where(user_id: @user.id).order(created_at: :desc)
