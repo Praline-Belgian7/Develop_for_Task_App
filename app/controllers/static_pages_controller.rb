@@ -1,5 +1,8 @@
 class StaticPagesController < ApplicationController
   
+    before_action :logged_in_user, only: [:create]
+    before_action :un_logged_in_user, only: [:destroy]
+  
   def top
   end
   

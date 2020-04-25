@@ -6,24 +6,39 @@
         <div class="top-logo1">TaskApp</div>
         <p class="top-text1"><span class="top-text2">TaskApp</span>は簡易<span class="top-text2">ToDo</span>管理ツールです。</p>
         <p class="top-text1">↓↓初めてのご利用↓↓</p>
-        <%= link_to "アカウント作成", signup_path, class: "btn btn-lg btn-success" %>
+        <% if logged_in? %>
+          <span class="btn btn-lg btn-success" disabled="disabled">アカウント作成</span>
+        <% else %>
+          <%= link_to "アカウント作成", signup_path, class: "btn btn-lg btn-success" %>
+        <% end %>
     </div>
     <div class="col-md-1"></div>
     <div class="col-md-4">
         <div class="top-logo2">ログイン</div>
         <%= form_with(scope: :session, url: login_path, local: true) do |f| %>
+          <% if logged_in? %>
+            <%= f.label :email, "メールアドレス", class: "label-login" %>
+            <%= f.email_field :email, readonly: true, class: 'form-control' %>
 
-        <%= f.label :email, "メールアドレス", class: "label-login" %>
-        <%= f.email_field :email, class: 'form-control' %>
+            <%= f.label :password, "パスワード", class: "label-login" %>
+            <%= f.password_field :password, readonly: true, class: 'form-control' %>
+          <% else %>
+            <%= f.label :email, "メールアドレス", class: "label-login" %>
+            <%= f.email_field :email, class: 'form-control' %>
 
-        <%= f.label :password, "パスワード", class: "label-login" %>
-        <%= f.password_field :password, class: 'form-control' %>
+            <%= f.label :password, "パスワード", class: "label-login" %>
+            <%= f.password_field :password, class: 'form-control' %>
       
-        <%= f.label :remember_me, class: "checkbox inline checkbox-login", for: "remember-me" do %>
-          <%= f.check_box :remember_me, id: "remember-me" %>
-          <span>ログイン情報を記憶する</span>
+            <%= f.label :remember_me, class: "checkbox inline checkbox-login", for: "remember-me" do %>
+            <%= f.check_box :remember_me, id: "remember-me" %>
+           <span>ログイン情報を記憶する</span>
+           <% end %>
+          <% end %>
+        <% if logged_in? %>
+          <%= f.submit "ログイン状態です", disabled: "disabled", class: "btn btn-primary btn-block btn-login" %>
+        <% else %>
+          <%= f.submit "ログイン", class: "btn btn-primary btn-block btn-login" %>
         <% end %>
-      <%= f.submit "ログイン", class: "btn btn-primary btn-block btn-login" %>
       <% end %>
     </div>
     <div class="col-md-1"></div>
