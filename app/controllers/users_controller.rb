@@ -37,6 +37,13 @@ class UsersController < ApplicationController
     @users = User.paginate(page: params[:page], per_page: 20)
   end
   
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    flash[:success] = "#{@user.name}のデータを削除しました。"
+    redirect_to users_url
+  end
+  
   private
   
     def user_params
