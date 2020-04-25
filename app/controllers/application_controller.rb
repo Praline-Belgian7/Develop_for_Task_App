@@ -7,6 +7,10 @@ class ApplicationController < ActionController::Base
     @user = User.find(params[:id])
   end
   
+  def set_user_task
+    @user = User.find(params[:user_id])
+  end
+  
   #未ログインのユーザーと判断した場合
   def un_logged_in_user
     unless logged_in?
@@ -30,8 +34,13 @@ class ApplicationController < ActionController::Base
   end
   
   # アクセスしたユーザーが現在ログインしているユーザーか確認します。
-  def correct_user
+  def correct_user1
     redirect_to root_url unless current_user?(@user)
+  end
+  
+  def correct_user2
+    redirect_to root_url unless current_user?(@user)
+    flash[:danger] = 'アクセス権限がありません。' unless current_user?(@user)
   end
   
 end

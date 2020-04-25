@@ -14,7 +14,7 @@
       </tr>
       <tr>
         <td class="table-task-show table-task">詳細</td>
-        <td class="table-task"><%= @task.description %></td>
+        <td class="table-task"><%= text_url_to_link(h(safe_join(@task.description.split("\n"),tag(:br)))).html_safe %></td>
       </tr>
       <tr>
         <td class="table-task-show table-task">作成日</td>
